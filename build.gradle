@@ -8,6 +8,7 @@ ohos {
 	
 buildscript {
     repositories {
+        mavenCentral()
         maven {
             url 'https://repo.huaweicloud.com/repository/maven/'
         }
@@ -23,6 +24,7 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenCentral()
         maven {
             url 'https://repo.huaweicloud.com/repository/maven/'
         }

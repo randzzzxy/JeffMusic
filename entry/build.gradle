@@ -20,6 +20,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
     testImplementation 'junit:junit:4.13.1'
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:2.0.0.200'
+    // 蒹葭的核心代码
+    implementation 'io.gitee.zhongte:jianjia:1.0.0'
+    // 数据转换器，数据转换器使用gson来帮我们解析json，不需要我们手动解析json
+    implementation 'io.gitee.zhongte:converter-gson:1.0.0'
+    implementation "com.google.code.gson:gson:2.8.2"
+    // 日志拦截器，通过日志拦截器可以看到请求头、请求体、响应头、响应体
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.7.0'
 }
 decc {
     supportType = ['html','xml']
