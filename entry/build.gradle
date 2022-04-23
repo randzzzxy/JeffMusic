@@ -28,6 +28,8 @@ dependencies {
     // 日志拦截器，通过日志拦截器可以看到请求头、请求体、响应头、响应体
     implementation 'com.squareup.okhttp3:logging-interceptor:3.7.0'
     implementation 'com.gitee.baijuncheng-open-source:coil:1.0.0'
+
+    implementation('com.gitee.chinasoft_ohos:SlidingRootNav:0.0.2-SNAPSHOT')
 }
 decc {
     supportType = ['html','xml']

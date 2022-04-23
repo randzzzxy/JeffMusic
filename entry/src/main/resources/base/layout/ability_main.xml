@@ -6,12 +6,40 @@
     ohos:background_element="#4285f4"
     ohos:orientation="vertical">
 
+    <DirectionalLayout
+        ohos:id="$+id:title_area"
+        ohos:orientation="horizontal"
+        ohos:height="80vp"
+        ohos:width="match_parent">
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:navigation_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:image_src="black"
+            ohos:layout_alignment="vertical_center"/>
+        <Text
+            ohos:weight="8"
+            ohos:height="match_parent"
+            ohos:text="MUSIC"
+            ohos:text_color="black"
+            ohos:text_alignment="center"
+            ohos:width="match_parent"/>
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:search_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:image_src="black"
+            ohos:layout_alignment="vertical_center"/>
+
+    </DirectionalLayout>
+
     <TabList
         ohos:id="$+id:tab_list"
         ohos:background_element="#4285f4"
         ohos:translation_z="10vp"
         ohos:weight="1"
-        ohos:top_margin="80vp"
         ohos:tab_margin="24vp"
         ohos:tab_length="140vp"
         ohos:text_size="20fp"

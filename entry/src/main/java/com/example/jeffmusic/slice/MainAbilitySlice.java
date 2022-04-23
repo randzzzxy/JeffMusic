@@ -4,11 +4,14 @@ import coil.Coil;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.fraction.FavoriteFraction;
 import com.example.jeffmusic.fraction.MusicFraction;
+import com.yarolegovich.slidingrootnav.SlidingRootNav;
+import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.ability.fraction.FractionAbility;
 import ohos.aafwk.ability.fraction.FractionManager;
 import ohos.aafwk.content.Intent;
+import ohos.agp.components.Image;
 import ohos.agp.components.TabList;
 import ohos.agp.window.service.WindowManager;
 import ohos.hiviewdfx.HiLog;
@@ -27,6 +30,13 @@ public class MainAbilitySlice extends AbilitySlice {
     }
 
     private void initview() {
+        Image navigationButton = findComponentById(ResourceTable.Id_navigation_button);
+        SlidingRootNav slidingRootNav = new SlidingRootNavBuilder(getAbility())
+                .withArbitrarilyView(navigationButton)
+                .withMenuLayout(ResourceTable.Layout_nav_info)
+                .withDragDistance(150)
+                .withRootViewScale(0.7f)
+                .inject();
         TabList tabList = findComponentById(ResourceTable.Id_tab_list);
         if(tabList!=null){
             for (int i = 0; i < str.length; i++) {

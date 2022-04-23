@@ -44,8 +44,8 @@
         "metaData": {
           "customizeData" : [
             {
-              "name" : "theme",
-              "value" : "androidhwext:style/Theme.Emui.Translucent.NoTitleBar"
+              "name" : "hwc-theme",
+              "value" : "androidhwext:style/Theme.Emui.NoTitleBar"
             }
           ]
         }
