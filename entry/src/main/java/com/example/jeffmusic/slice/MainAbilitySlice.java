@@ -1,5 +1,6 @@
 package com.example.jeffmusic.slice;
 
+import coil.Coil;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.fraction.FavoriteFraction;
 import com.example.jeffmusic.fraction.MusicFraction;
@@ -9,6 +10,7 @@ import ohos.aafwk.ability.fraction.FractionAbility;
 import ohos.aafwk.ability.fraction.FractionManager;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.TabList;
+import ohos.agp.window.service.WindowManager;
 import ohos.hiviewdfx.HiLog;
 
 public class MainAbilitySlice extends AbilitySlice {
@@ -20,6 +22,7 @@ public class MainAbilitySlice extends AbilitySlice {
     public void onStart(Intent intent) {
         super.onStart(intent);
         super.setUIContent(ResourceTable.Layout_ability_main);
+        initSystemUi();
         initview();
     }
 
@@ -34,6 +37,7 @@ public class MainAbilitySlice extends AbilitySlice {
            /* tabList.setTabLength(60); // 设置Tab的宽度
             tabList.setTabMargin(26); // 设置两个Tab之间的间距*/
             addHomeFraction();
+            tabList.selectTabAt(0);
             tabList.addTabSelectedListener(new TabList.TabSelectedListener() {
                 @Override
                 public void onSelected(TabList.Tab tab) {
@@ -53,7 +57,6 @@ public class MainAbilitySlice extends AbilitySlice {
                     System.out.println("当某个Tab已处于选中状态，再次被点击时的状态回调");
                 }
             });
-
         }
     }
 
@@ -89,6 +92,14 @@ public class MainAbilitySlice extends AbilitySlice {
         }
     }
 
+
+    private void initSystemUi() {
+
+        //状态栏设置为透明
+        getWindow().addFlags(WindowManager.LayoutConfig.MARK_TRANSLUCENT_STATUS);
+        //导航栏 ActionBar
+        getWindow().addFlags(WindowManager.LayoutConfig.MARK_TRANSLUCENT_NAVIGATION);
+    }
 
 
     @Override

@@ -40,7 +40,15 @@
         "description": "$string:mainability_description",
         "label": "$string:entry_MainAbility",
         "type": "page",
-        "launchType": "standard"
+        "launchType": "standard",
+        "metaData": {
+          "customizeData" : [
+            {
+              "name" : "theme",
+              "value" : "androidhwext:style/Theme.Emui.Translucent.NoTitleBar"
+            }
+          ]
+        }
       }
     ]
   }

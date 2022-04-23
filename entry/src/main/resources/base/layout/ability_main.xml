@@ -3,12 +3,15 @@
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:background_element="black"
+    ohos:background_element="#4285f4"
     ohos:orientation="vertical">
 
     <TabList
         ohos:id="$+id:tab_list"
-        ohos:top_margin="40vp"
+        ohos:background_element="#4285f4"
+        ohos:translation_z="10vp"
+        ohos:weight="1"
+        ohos:top_margin="80vp"
         ohos:tab_margin="24vp"
         ohos:tab_length="140vp"
         ohos:text_size="20fp"
@@ -17,14 +20,68 @@
         ohos:layout_alignment="center"
         ohos:orientation="horizontal"
         ohos:text_alignment="center"
-        ohos:normal_text_color="#999999"
-        ohos:selected_text_color="#FFFFFF"
-        ohos:selected_tab_indicator_color="#FFFFFF"
+        ohos:normal_text_color="#c7dbfc"
+        ohos:selected_text_color="white"
+        ohos:selected_tab_indicator_color="#ffb700"
         ohos:selected_tab_indicator_height="2vp"/>
 
     <StackLayout
         ohos:id="$+id:mainstack"
+        ohos:background_element="white"
+        ohos:weight="8"
         ohos:height="match_parent"
         ohos:width="match_parent"
         />
+
+    <DependentLayout
+        ohos:height="match_parent"
+        ohos:width="match_parent"
+        ohos:weight="2"
+        ohos:background_element="#c7dbfc">
+        <Image
+            ohos:id="$+id:music_item_imag"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:image_src="black"
+            ohos:align_parent_left="true"
+            ohos:vertical_center="true"/>
+        <Text
+            ohos:id="$+id:music_item_name"
+            ohos:right_of="$id:music_item_imag"
+            ohos:align_top="$id:music_item_imag"
+            ohos:text="MUSIC_NAME"
+            ohos:text_color="black"
+            ohos:height="30vp"
+            ohos:width="match_parent"/>
+        <Text
+            ohos:id="$+id:music_item_author"
+            ohos:right_of="$id:music_item_imag"
+            ohos:below="$id:music_item_name"
+            ohos:text="MUSIC_AUTHOR"
+            ohos:text_color="#aeaeae"
+            ohos:height="30vp"
+            ohos:width="match_parent"/>
+
+        <DirectionalLayout
+            ohos:height="match_parent"
+            ohos:width="200vp"
+            ohos:vertical_center="true"
+            ohos:align_parent_right="true"
+            ohos:orientation="horizontal">
+            <Image
+                ohos:id="$+id:play_button"
+                ohos:height="80"
+                ohos:width="80"
+                ohos:image_src="black"
+                ohos:layout_alignment="vertical_center"/>
+            <Image
+                ohos:id="$+id:next_button"
+                ohos:height="80"
+                ohos:width="80"
+                ohos:image_src="black"
+                ohos:left_margin="20vp"
+                ohos:layout_alignment="vertical_center"/>
+
+        </DirectionalLayout>
+    </DependentLayout>
 </DirectionalLayout>

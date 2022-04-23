@@ -3,10 +3,7 @@ package com.example.jeffmusic.provider;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.model.MusicModel;
 import ohos.aafwk.ability.fraction.Fraction;
-import ohos.agp.components.BaseItemProvider;
-import ohos.agp.components.Component;
-import ohos.agp.components.ComponentContainer;
-import ohos.agp.components.LayoutScatter;
+import ohos.agp.components.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +47,9 @@ public class MusicItemProvider extends BaseItemProvider {
         } else {
             cpt = convertComponent;
         }
+        final Image image = cpt.findComponentById(ResourceTable.Id_music_item_imag);
+        final Text name = cpt.findComponentById(ResourceTable.Id_music_item_name);
+        final Text author = cpt.findComponentById(ResourceTable.Id_music_item_author);
         return cpt;
     }
 }

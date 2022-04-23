@@ -34,8 +34,8 @@ public class MusicFraction extends Fraction {
         ListContainer listContainer = getFractionAbility().findComponentById(ResourceTable.Id_list_container);
         List<MusicModel> list = getData();
         MusicItemProvider musicItemProvider = new MusicItemProvider(this);
-        listContainer.setItemProvider(musicItemProvider);
         musicItemProvider.setData(list);
+        listContainer.setItemProvider(musicItemProvider);
     }
     private ArrayList<MusicModel> getData() {
         ArrayList<MusicModel> list = new ArrayList<>();

@@ -27,6 +27,7 @@ dependencies {
     implementation "com.google.code.gson:gson:2.8.2"
     // 日志拦截器，通过日志拦截器可以看到请求头、请求体、响应头、响应体
     implementation 'com.squareup.okhttp3:logging-interceptor:3.7.0'
+    implementation 'com.gitee.baijuncheng-open-source:coil:1.0.0'
 }
 decc {
     supportType = ['html','xml']
