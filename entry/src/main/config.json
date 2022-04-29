@@ -11,7 +11,7 @@
   "module": {
     "package": "com.example.jeffmusic",
     "name": ".MyApplication",
-    "mainAbility": "com.example.jeffmusic.MainAbility",
+    "mainAbility": "com.example.jeffmusic.ability.MainAbility",
     "deviceType": [
       "phone"
     ],
@@ -35,20 +35,38 @@
         ],
         "orientation": "unspecified",
         "visible": true,
-        "name": "com.example.jeffmusic.MainAbility",
+        "name": "com.example.jeffmusic.ability.MainAbility",
         "icon": "$media:icon",
         "description": "$string:mainability_description",
         "label": "$string:entry_MainAbility",
         "type": "page",
         "launchType": "standard",
         "metaData": {
-          "customizeData" : [
+          "customizeData": [
             {
-              "name" : "hwc-theme",
-              "value" : "androidhwext:style/Theme.Emui.NoTitleBar"
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.NoTitleBar"
             }
           ]
         }
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.jeffmusic.ability.LoginAbility",
+        "icon": "$media:icon",
+        "description": "$string:loginability_description",
+        "label": "$string:entry_LoginAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.jeffmusic.ability.SiginAblity",
+        "icon": "$media:icon",
+        "description": "$string:siginablity_description",
+        "label": "$string:entry_SiginAblity",
+        "type": "page",
+        "launchType": "standard"
       }
     ]
   }

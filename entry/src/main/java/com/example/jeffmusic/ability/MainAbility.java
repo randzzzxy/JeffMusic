@@ -1,4 +1,4 @@
-package com.example.jeffmusic;
+package com.example.jeffmusic.ability;
 
 import com.example.jeffmusic.slice.MainAbilitySlice;
 import ohos.aafwk.ability.Ability;
