@@ -3,5 +3,5 @@
     ohos:shape="rectangle"
     xmlns:ohos="http://schemas.huawei.com/res/ohos">
     <corners ohos:radius="4vp"/>
-    <solid ohos:color="#d9d9d9"/>
+    <solid ohos:color="#323232"/>
 </shape>

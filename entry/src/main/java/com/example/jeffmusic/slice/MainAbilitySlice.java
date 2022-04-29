@@ -1,9 +1,12 @@
 package com.example.jeffmusic.slice;
 
 import coil.Coil;
+import com.example.jeffmusic.MyApplication;
 import com.example.jeffmusic.ResourceTable;
+import com.example.jeffmusic.ability.LoginAbility;
 import com.example.jeffmusic.fraction.FavoriteFraction;
 import com.example.jeffmusic.fraction.MusicFraction;
+import com.example.jeffmusic.utils.PlayerUtils;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import ohos.aafwk.ability.AbilitySlice;
@@ -11,6 +14,8 @@ import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.ability.fraction.FractionAbility;
 import ohos.aafwk.ability.fraction.FractionManager;
 import ohos.aafwk.content.Intent;
+import ohos.aafwk.content.Operation;
+import ohos.agp.components.Component;
 import ohos.agp.components.Image;
 import ohos.agp.components.TabList;
 import ohos.agp.window.service.WindowManager;
@@ -37,6 +42,15 @@ public class MainAbilitySlice extends AbilitySlice {
                 .withDragDistance(150)
                 .withRootViewScale(0.7f)
                 .inject();
+        slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_login_button).setClickedListener(
+                component -> {
+                    if(PlayerUtils.isLogin()) {
+
+                    } else {
+                        startLoginAbility();
+                    }
+                }
+        );
         TabList tabList = findComponentById(ResourceTable.Id_tab_list);
         if(tabList!=null){
             for (int i = 0; i < str.length; i++) {
@@ -100,6 +114,17 @@ public class MainAbilitySlice extends AbilitySlice {
             default:
                 break;
         }
+    }
+
+    //登陆页面
+    private void startLoginAbility() {
+        Intent intent = new Intent();
+        Operation operation = new Intent.OperationBuilder().withDeviceId("")
+                .withBundleName(getBundleName())
+                .withAbilityName(LoginAbility.class)
+                .build();
+        intent.setOperation(operation);
+        startAbility(intent);
     }
 
 

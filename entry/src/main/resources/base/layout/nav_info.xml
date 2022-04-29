@@ -43,6 +43,7 @@
         ohos:height="match_parent"
         ohos:width="match_parent">
         <DirectionalLayout
+            ohos:id="$+id:nav_login_button"
             ohos:height="40vp"
             ohos:orientation="horizontal"
             ohos:width="match_parent">
