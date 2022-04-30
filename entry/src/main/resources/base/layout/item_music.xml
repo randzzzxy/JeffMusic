@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DependentLayout
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
-    ohos:height="120vp"
+    ohos:height="80vp"
     ohos:width="match_parent"
     ohos:orientation="vertical">
     <Image
+        ohos:left_margin="20vp"
         ohos:id="$+id:music_item_imag"
-        ohos:height="80"
-        ohos:width="80"
+        ohos:height="120"
+        ohos:width="120"
         ohos:image_src="black"
         ohos:align_left="30vp"
         ohos:vertical_center="true"/>
     <Text
+        ohos:left_margin="10vp"
         ohos:id="$+id:music_item_name"
         ohos:right_of="$id:music_item_imag"
         ohos:align_top="$id:music_item_imag"
         ohos:text="MUSIC_NAME"
         ohos:text_color="black"
-        ohos:height="30vp"
+        ohos:text_size="14fp"
+        ohos:height="match_content"
         ohos:width="match_parent"/>
     <Text
+        ohos:left_margin="10vp"
         ohos:id="$+id:music_item_author"
         ohos:right_of="$id:music_item_imag"
         ohos:below="$id:music_item_name"
+        ohos:top_margin="5vp"
+        ohos:text_size="10fp"
         ohos:text="MUSIC_AUTHOR"
-        ohos:text_color="#aeaeae"
-        ohos:height="30vp"
+        ohos:text_color="black"
+        ohos:height="match_content"
         ohos:width="match_parent"/>
+
+    <Image
+        ohos:id="$+id:music_item_operation_button"
+        ohos:height="120"
+        ohos:width="120"
+        ohos:align_parent_right="true"
+        ohos:image_src="$media:opration_song_icon"
+       ohos:right_margin="20vp"
+        ohos:vertical_center="true"/>
 </DependentLayout>

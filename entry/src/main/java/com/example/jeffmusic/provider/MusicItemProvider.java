@@ -1,5 +1,6 @@
 package com.example.jeffmusic.provider;
 
+import com.bumptech.glide.Glide;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.model.MusicModel;
 import ohos.aafwk.ability.fraction.Fraction;
@@ -47,9 +48,13 @@ public class MusicItemProvider extends BaseItemProvider {
         } else {
             cpt = convertComponent;
         }
+        MusicModel data = mList.get(i);
         final Image image = cpt.findComponentById(ResourceTable.Id_music_item_imag);
         final Text name = cpt.findComponentById(ResourceTable.Id_music_item_name);
         final Text author = cpt.findComponentById(ResourceTable.Id_music_item_author);
+        Glide.with(componentContainer.getContext()).load(data.getCoverUrl()).into(image);
+        name.setText(data.getName());
+        author.setText(data.getAuthor().getName());
         return cpt;
     }
 }

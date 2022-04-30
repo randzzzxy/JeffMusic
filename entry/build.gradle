@@ -30,6 +30,7 @@ dependencies {
     implementation 'com.gitee.baijuncheng-open-source:coil:1.0.0'
 
     implementation('com.gitee.chinasoft_ohos:SlidingRootNav:0.0.2-SNAPSHOT')
+    implementation 'io.openharmony.tpc.thirdlib:glide:1.1.2'
 }
 decc {
     supportType = ['html','xml']
