@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+    <DirectionalLayout
+        ohos:height="40vp"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal">
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:weight="8"
+            ohos:text="我的歌单"
+            ohos:left_margin="10vp"
+            ohos:text_size="12fp"
+            ohos:layout_alignment="vertical_center|left"/>
+        <Image
+            ohos:id="$+id:playlist_add_button"
+            ohos:height="40vp"
+            ohos:width="40vp"
+            ohos:image_src="$media:playlist_add_icon"
+            ohos:weight="1"/>
+        <Image
+            ohos:id="$+id:playlist_operation_button"
+            ohos:height="40vp"
+            ohos:width="40vp"
+            ohos:image_src="$media:opration_song_icon"
+            ohos:weight="1"/>
+    </DirectionalLayout>
+
+    <ListContainer
+        ohos:id="$+id:list_container"
+        ohos:height="200vp"
+        ohos:width="300vp"
+        ohos:layout_alignment="horizontal_center"/>
+
+</DirectionalLayout>

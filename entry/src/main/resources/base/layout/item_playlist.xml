@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <Text
+        ohos:id="$+id:item_playlist_name"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:left_margin="20vp"
+        ohos:top_margin="5vp"
+        ohos:bottom_margin="5vp"
+        ohos:text_size="12fp"
+        ohos:text="歌单"/>
+
+</DirectionalLayout>

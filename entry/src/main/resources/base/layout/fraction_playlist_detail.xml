@@ -6,7 +6,7 @@
     ohos:orientation="vertical">
     <ListContainer
         ohos:id="$+id:list_container"
-        ohos:height="200vp"
+        ohos:height="match_parent"
         ohos:width="300vp"
         ohos:layout_alignment="horizontal_center"/>
 

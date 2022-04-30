@@ -2,8 +2,11 @@ package com.example.jeffmusic.slice;
 
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.ability.LoginAbility;
-import com.example.jeffmusic.fraction.FavoriteFraction;
+import com.example.jeffmusic.fraction.PlayListDetailFraction;
+import com.example.jeffmusic.fraction.PlayListFraction;
 import com.example.jeffmusic.fraction.MusicFraction;
+import com.example.jeffmusic.manager.MainPageFractionChangeCallback;
+import com.example.jeffmusic.manager.MainPageFractionManger;
 import com.example.jeffmusic.utils.PlayerUtils;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
@@ -19,8 +22,7 @@ import ohos.agp.components.Text;
 import ohos.agp.window.service.WindowManager;
 
 public class MainAbilitySlice extends AbilitySlice {
-    private final static int TAB_MUSIC = 0;
-    private final static int TAB_FAVORITE = 1;
+    private MainPageFractionManger mMainPageFractionManger = new MainPageFractionManger();
     String[] str = new String[] {"Music", "Favorite"};
 
     @Override
@@ -45,12 +47,19 @@ public class MainAbilitySlice extends AbilitySlice {
             tabList.setTabMargin(26); // 设置两个Tab之间的间距*/
             addHomeFraction();
             tabList.selectTabAt(0);
+            mMainPageFractionManger.setData(0);
+            mMainPageFractionManger.observe(new MainPageFractionChangeCallback() {
+                @Override
+                public void onFractionChange(int tabId) {
+                    layoutShow(tabId);
+                }
+            });
             tabList.addTabSelectedListener(new TabList.TabSelectedListener() {
                 @Override
                 public void onSelected(TabList.Tab tab) {
                     // 当某个Tab从未选中状态变为选中状态时的回调
                     System.out.println("当某个Tab从未选中状态变为选中状态时的回调    " + tab.getPosition());
-                    layoutShow(tab.getPosition());
+                    mMainPageFractionManger.setData(tab.getPosition());
                 }
 
                 @Override
@@ -109,18 +118,24 @@ public class MainAbilitySlice extends AbilitySlice {
     }
 
 
-    public  void  layoutShow(int  code){
+    public void layoutShow(int code){
         switch (code){
-            case TAB_MUSIC:
+            case MainPageFractionManger.TAB_MUSIC:
                 getFractionManager()
                         .startFractionScheduler()
                         .replace(ResourceTable.Id_mainstack, new MusicFraction())
                         .submit();
                 break;
-            case TAB_FAVORITE:
+            case MainPageFractionManger.TAB_PLAYLIST:
                 getFractionManager()
                         .startFractionScheduler()
-                        .replace(ResourceTable.Id_mainstack, new FavoriteFraction())
+                        .replace(ResourceTable.Id_mainstack, new PlayListFraction(mMainPageFractionManger))
+                        .submit();
+                break;
+            case MainPageFractionManger.TAB_PLAYLIST_DETAIL:
+                getFractionManager()
+                        .startFractionScheduler()
+                        .replace(ResourceTable.Id_mainstack, new PlayListDetailFraction())
                         .submit();
                 break;
             default:
