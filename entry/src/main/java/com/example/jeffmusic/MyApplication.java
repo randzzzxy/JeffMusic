@@ -1,5 +1,6 @@
 package com.example.jeffmusic;
 
+import com.example.jeffmusic.api.MusicApi;
 import com.example.jeffmusic.api.UserApi;
 import com.example.jeffmusic.model.UserModel;
 import ohos.aafwk.ability.AbilityPackage;
@@ -16,6 +17,7 @@ public class MyApplication extends AbilityPackage {
     private UserApi mUserApi;
     private UserModel mUser;
     private Preferences mPreferences;
+    private MusicApi mMusicApi;
 
     public static MyApplication getInstance() {
         return instance;
@@ -31,6 +33,10 @@ public class MyApplication extends AbilityPackage {
 
     public UserApi getUserApi() {
         return mUserApi;
+    }
+
+    public MusicApi getMusicApi() {
+        return mMusicApi;
     }
 
     public String getToken() {
@@ -56,6 +62,7 @@ public class MyApplication extends AbilityPackage {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mUserApi = mJianJia.create(UserApi.class);
+        mMusicApi = mJianJia.create(MusicApi.class);
         Context context = getContext(); // 数据文件存储路径：/data/data/{PackageName}/{AbilityName}/preferences。
         // Context context = getApplicationContext(); // 数据文件存储路径：/data/data/{PackageName}/preferences。
         DatabaseHelper databaseHelper = new DatabaseHelper(context); // context入参类型为ohos.app.Context。

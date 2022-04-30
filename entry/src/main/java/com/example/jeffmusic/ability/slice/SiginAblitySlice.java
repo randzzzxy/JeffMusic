@@ -2,9 +2,11 @@ package com.example.jeffmusic.ability.slice;
 
 import com.example.jeffmusic.MyApplication;
 import com.example.jeffmusic.ResourceTable;
+import com.example.jeffmusic.ability.LoginAbility;
 import com.example.jeffmusic.utils.PlayerUtils;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
+import ohos.aafwk.content.Operation;
 import ohos.agp.components.Text;
 import ohos.agp.components.TextField;
 import ohos.agp.components.element.Element;
@@ -23,6 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SiginAblitySlice extends AbilitySlice {
+    private boolean buttonClickable;
+
     @Override
     public void onStart(Intent intent) {
         super.onStart(intent);
@@ -34,24 +38,35 @@ public class SiginAblitySlice extends AbilitySlice {
         TextField nickNameText = findComponentById(ResourceTable.Id_nick_name_text);
         TextField passwordText = findComponentById(ResourceTable.Id_password_text);
         Text button = findComponentById(ResourceTable.Id_sigin_button);
+        findComponentById(ResourceTable.Id_exit_button).setClickedListener(component -> {
+            terminateAbility();
+        });
+        findComponentById(ResourceTable.Id_sigin_change_text).setClickedListener(component -> {
+            startLoginAbility();
+            terminateAbility();
+        });
         nickNameText.addTextObserver((s, i, i1, i2) -> {
             if (!PlayerUtils.isEmptyString(s) && !PlayerUtils.isEmptyString(passwordText.getText())) {
                 button.setBackground(new ShapeElement(getAbility(), ResourceTable.Graphic_background_login_button_clickable));
+                buttonClickable = true;
             } else {
                 button.setBackground(new ShapeElement(getAbility(), ResourceTable.Graphic_background_login_button));
+                buttonClickable = false;
             }
         });
         passwordText.addTextObserver((s, i, i1, i2) -> {
             if (!PlayerUtils.isEmptyString(s) && !PlayerUtils.isEmptyString(nickNameText.getText())) {
                 button.setBackground(new ShapeElement(getAbility(), ResourceTable.Graphic_background_login_button_clickable));
+                buttonClickable = true;
             } else {
                 button.setBackground(new ShapeElement(getAbility(), ResourceTable.Graphic_background_login_button));
+                buttonClickable = false;
             }
         });
         button.setClickedListener(component -> {
             String nickName = nickNameText.getText();
             String password = passwordText.getText();
-            if (PlayerUtils.isEmptyString(nickName) || PlayerUtils.isEmptyString(password)) {
+            if (!buttonClickable) {
                 new ToastDialog(getContext())
                         .setText("请检查用户名或密码是否为空！")
                         .show();
@@ -76,6 +91,17 @@ public class SiginAblitySlice extends AbilitySlice {
                 });
             }
         });
+    }
+
+    //登陆页面
+    private void startLoginAbility() {
+        Intent intent = new Intent();
+        Operation operation = new Intent.OperationBuilder().withDeviceId("")
+                .withBundleName(getBundleName())
+                .withAbilityName(LoginAbility.class)
+                .build();
+        intent.setOperation(operation);
+        startAbility(intent);
     }
 
     @Override

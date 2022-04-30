@@ -16,7 +16,8 @@
             ohos:id="$+id:navigation_button"
             ohos:height="80"
             ohos:width="80"
-            ohos:image_src="black"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:nav_icom"
             ohos:layout_alignment="vertical_center"/>
         <Text
             ohos:weight="8"
@@ -30,7 +31,8 @@
             ohos:id="$+id:search_button"
             ohos:height="80"
             ohos:width="80"
-            ohos:image_src="black"
+            ohos:right_margin="20vp"
+            ohos:image_src="$media:search_icon"
             ohos:layout_alignment="vertical_center"/>
 
     </DirectionalLayout>
@@ -55,7 +57,7 @@
 
     <StackLayout
         ohos:id="$+id:mainstack"
-        ohos:background_element="white"
+        ohos:background_element="#f5f5f5"
         ohos:weight="8"
         ohos:height="match_parent"
         ohos:width="match_parent"
@@ -64,14 +66,22 @@
     <DependentLayout
         ohos:height="match_parent"
         ohos:width="match_parent"
-        ohos:weight="2"
-        ohos:background_element="#c7dbfc">
+        ohos:weight="1.5"
+        ohos:background_element="white">
+        <ProgressBar
+            ohos:id="$+id:music_progress"
+            ohos:height="5vp"
+            ohos:width="match_parent"
+            ohos:progress="60"
+            ohos:progress_color="#c7dbfc"
+            ohos:align_parent_top="true"/>
         <Image
             ohos:id="$+id:music_item_imag"
-            ohos:height="80"
-            ohos:width="80"
+            ohos:height="60vp"
+            ohos:width="60vp"
             ohos:image_src="black"
             ohos:align_parent_left="true"
+            ohos:left_margin="20vp"
             ohos:vertical_center="true"/>
         <Text
             ohos:id="$+id:music_item_name"
@@ -79,6 +89,8 @@
             ohos:align_top="$id:music_item_imag"
             ohos:text="MUSIC_NAME"
             ohos:text_color="black"
+            ohos:text_size="12fp"
+            ohos:left_margin="10vp"
             ohos:height="30vp"
             ohos:width="match_parent"/>
         <Text
@@ -86,28 +98,29 @@
             ohos:right_of="$id:music_item_imag"
             ohos:below="$id:music_item_name"
             ohos:text="MUSIC_AUTHOR"
+            ohos:left_margin="10vp"
+            ohos:text_size="10fp"
             ohos:text_color="#aeaeae"
             ohos:height="30vp"
             ohos:width="match_parent"/>
 
         <DirectionalLayout
             ohos:height="match_parent"
-            ohos:width="200vp"
+            ohos:width="match_content"
             ohos:vertical_center="true"
             ohos:align_parent_right="true"
             ohos:orientation="horizontal">
             <Image
                 ohos:id="$+id:play_button"
-                ohos:height="80"
-                ohos:width="80"
-                ohos:image_src="black"
+                ohos:height="40vp"
+                ohos:width="40vp"
+                ohos:image_src="$media:pause_icon"
                 ohos:layout_alignment="vertical_center"/>
             <Image
                 ohos:id="$+id:next_button"
-                ohos:height="80"
-                ohos:width="80"
-                ohos:image_src="black"
-                ohos:left_margin="20vp"
+                ohos:height="40vp"
+                ohos:width="40vp"
+                ohos:image_src="$media:next_song_icon"
                 ohos:layout_alignment="vertical_center"/>
 
         </DirectionalLayout>

@@ -1,5 +1,6 @@
 package com.example.jeffmusic.api;
 
+import com.example.jeffmusic.model.LoginModel;
 import okhttp3.ResponseBody;
 import poetry.jianjia.Call;
 import poetry.jianjia.http.FieldMap;
@@ -15,5 +16,5 @@ public interface UserApi {
 
     @FormUrlEncoded
     @POST("user/login")
-    Call<ResponseBody> login(@FieldMap Map<String, String> map);
+    Call<LoginModel> login(@FieldMap Map<String, String> map);
 }

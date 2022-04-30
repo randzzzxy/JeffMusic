@@ -3,6 +3,7 @@ package com.example.jeffmusic.model;
 import java.io.Serializable;
 
 public class MusicModel implements Serializable {
+    private int id;
     private String name;
     private UserModel author;
     private String songUrl;

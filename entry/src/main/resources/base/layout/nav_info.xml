@@ -12,51 +12,78 @@
                     ohos:left="10vp">
 
         <Image
+            ohos:left_margin="10vp"
             ohos:top_margin="20vp"
             ohos:width="75vp"
             ohos:height="75vp"
             ohos:align_parent_left="true"
-            ohos:image_src="black" />
+            ohos:image_src="$media:default_avatar" />
+
 
         <Text
-            ohos:id="$+id:name_text"
-            ohos:width="match_content"
-            ohos:height="match_content"
-            ohos:above="$+id:mail_tv"
-            ohos:text="cmos"
-            ohos:text_color="#fff"
-            ohos:text_size="16fp" />
-
-        <Text
+            ohos:left_margin="10vp"
+            ohos:bottom_margin="20vp"
             ohos:id="$+id:mail_tv"
             ohos:width="match_content"
             ohos:height="match_content"
             ohos:align_parent_bottom="true"
-            ohos:text="com.example@126.com"
+            ohos:text="nickname"
             ohos:text_color="#fff"
             ohos:text_size="16fp" />
     </DependentLayout>
 
     <DirectionalLayout
         ohos:orientation="vertical"
-        ohos:left_padding="10vp"
+        ohos:left_padding="5vp"
         ohos:height="match_parent"
         ohos:width="match_parent">
+        <Text
+            ohos:top_margin="10vp"
+            ohos:bottom_margin="10vp"
+            ohos:left_margin="10vp"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text_size="12fp"
+            ohos:text="功能"
+            ohos:text_color="#aeaeae"/>
         <DirectionalLayout
             ohos:id="$+id:nav_login_button"
             ohos:height="40vp"
             ohos:orientation="horizontal"
             ohos:width="match_parent">
             <Image
-                ohos:layout_alignment="center"
+                ohos:layout_alignment="left|vertical_center"
                 ohos:height="34vp"
                 ohos:width="34vp"
-                ohos:image_src="black"/>
+                ohos:image_src="$media:logout_icon"/>
+            <Text
+                ohos:id="$+id:login_text"
+                ohos:height="match_parent"
+                ohos:width="match_parent"
+                ohos:text_color="black"
+                ohos:left_margin="20vp"
+                ohos:text="退出登陆"
+                ohos:text_size="12fp"
+                ohos:text_alignment="left|vertical_center"/>
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:id="$+id:nav_playlist_button"
+            ohos:height="40vp"
+            ohos:orientation="horizontal"
+            ohos:width="match_parent">
+            <Image
+                ohos:layout_alignment="left|vertical_center"
+                ohos:height="34vp"
+                ohos:width="34vp"
+                ohos:image_src="$media:local_playlist_icon"/>
             <Text
                 ohos:height="match_parent"
                 ohos:width="match_parent"
                 ohos:text_color="black"
-                ohos:text="HHHHHHH"
+                ohos:left_margin="20vp"
+                ohos:text="播放列表"
+                ohos:text_size="12fp"
                 ohos:text_alignment="left|vertical_center"/>
         </DirectionalLayout>
     </DirectionalLayout>

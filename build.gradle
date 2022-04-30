@@ -3,9 +3,20 @@ apply plugin: 'com.huawei.ohos.app'
 
 //For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#section1112183053510
 ohos {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/mac/Desktop/HuaWeiCer/a.p12')
+            storePassword '0000001BF38CEFDA03FFFC92CADF9509A6BDD7082C49B80657F650C2F65C5D093160D09EA73B5AECB20DA9'
+            keyAlias = 'Jeff'
+            keyPassword '0000001B0B7A088ADB17D312C9C5F30DDE3CA1ADC6D2B943B99719DF764AFBD9C269E31CA125B069FA1AC4'
+            signAlg = 'SHA256withECDSA'
+            profile file('/Users/mac/Desktop/HuaWeiCer/播放器Debug.p7b')
+            certpath file('/Users/mac/Desktop/HuaWeiCer/Jeff.cer')
+        }
+    }
     compileSdkVersion 7
 }
-	
+
 buildscript {
     repositories {
         mavenCentral()

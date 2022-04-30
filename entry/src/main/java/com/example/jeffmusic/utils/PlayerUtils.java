@@ -7,7 +7,7 @@ public class PlayerUtils {
         return str == null || str.equals("");
     }
 
-    public static boolean isLogin() {
+    public static boolean isLoggedin() {
         return !isEmptyString(MyApplication.getInstance().getToken());
     }
 }
