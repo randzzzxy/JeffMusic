@@ -23,7 +23,7 @@
         <Text
             ohos:left_margin="10vp"
             ohos:bottom_margin="20vp"
-            ohos:id="$+id:mail_tv"
+            ohos:id="$+id:nickname_tv"
             ohos:width="match_content"
             ohos:height="match_content"
             ohos:align_parent_bottom="true"

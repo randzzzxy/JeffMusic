@@ -3,6 +3,7 @@ package com.example.jeffmusic;
 import com.example.jeffmusic.api.MusicApi;
 import com.example.jeffmusic.api.UserApi;
 import com.example.jeffmusic.model.UserModel;
+import com.example.jeffmusic.player.MusicPlayer;
 import ohos.aafwk.ability.AbilityPackage;
 import ohos.app.Context;
 import ohos.data.DatabaseHelper;
@@ -11,13 +12,19 @@ import ohos.global.resource.ResourceManager;
 import poerty.jianjian.converter.gson.GsonConverterFactory;
 import poetry.jianjia.JianJia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyApplication extends AbilityPackage {
+    public static String RESOURCE_MUSIC_URL_PRE = "http://192.168.0.105:8080/file/song?name=";
     private static MyApplication instance;
     private JianJia mJianJia;
     private UserApi mUserApi;
     private UserModel mUser;
     private Preferences mPreferences;
     private MusicApi mMusicApi;
+    private List<UserCallback> mUserObservers = new ArrayList<>();
+    private MusicPlayer mPlayer = new MusicPlayer(this);
 
     public static MyApplication getInstance() {
         return instance;
@@ -25,6 +32,13 @@ public class MyApplication extends AbilityPackage {
 
     public void setUser(UserModel user) {
         mUser = user;
+        for (int i = 0; i < mUserObservers.size(); i++) {
+            mUserObservers.get(i).onCurrentUserChanged(mUser);
+        }
+    }
+
+    public MusicPlayer getPlayer() {
+        return mPlayer;
     }
 
     public JianJia getJianJia() {
@@ -58,7 +72,7 @@ public class MyApplication extends AbilityPackage {
         instance = this;
         // 创建全局的蒹葭对象
         mJianJia = new JianJia.Builder()
-                .baseUrl("https://127.0.0.1:8080")
+                .baseUrl("http://192.168.0.105:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mUserApi = mJianJia.create(UserApi.class);
@@ -68,5 +82,14 @@ public class MyApplication extends AbilityPackage {
         DatabaseHelper databaseHelper = new DatabaseHelper(context); // context入参类型为ohos.app.Context。
         String fileName = "token"; // fileName表示文件名，其取值不能为空，也不能包含路径，默认存储目录可以通过context.getPreferencesDir()获取。
         mPreferences = databaseHelper.getPreferences(fileName);
+    }
+
+    public void observeUser(UserCallback callback){
+        mUserObservers.add(callback);
+        callback.onCurrentUserChanged(mUser);
+    }
+
+    public UserModel getUser() {
+        return mUser;
     }
 }

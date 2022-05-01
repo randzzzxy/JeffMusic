@@ -1,5 +1,7 @@
 package com.example.jeffmusic.slice;
 
+import com.bumptech.glide.Glide;
+import com.example.jeffmusic.MyApplication;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.ability.LoginAbility;
 import com.example.jeffmusic.fraction.PlayListDetailFraction;
@@ -7,6 +9,9 @@ import com.example.jeffmusic.fraction.PlayListFraction;
 import com.example.jeffmusic.fraction.MusicFraction;
 import com.example.jeffmusic.manager.MainPageFractionChangeCallback;
 import com.example.jeffmusic.manager.MainPageFractionManger;
+import com.example.jeffmusic.model.UserModel;
+import com.example.jeffmusic.player.MusicPlayer;
+import com.example.jeffmusic.procotol.PlayerCallBack;
 import com.example.jeffmusic.utils.PlayerUtils;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
@@ -15,10 +20,8 @@ import ohos.aafwk.ability.fraction.FractionAbility;
 import ohos.aafwk.ability.fraction.FractionManager;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
-import ohos.agp.components.Component;
-import ohos.agp.components.Image;
-import ohos.agp.components.TabList;
-import ohos.agp.components.Text;
+import ohos.agp.components.*;
+import ohos.agp.components.element.VectorElement;
 import ohos.agp.window.service.WindowManager;
 
 public class MainAbilitySlice extends AbilitySlice {
@@ -74,6 +77,49 @@ public class MainAbilitySlice extends AbilitySlice {
                 }
             });
         }
+        initPlayerView();
+    }
+
+    private void initPlayerView() {
+        ProgressBar progressBar = findComponentById(ResourceTable.Id_music_progress);
+        Image musicCover = findComponentById(ResourceTable.Id_music_item_imag);
+        Text musicName = findComponentById(ResourceTable.Id_music_item_name);
+        Image playButton = findComponentById(ResourceTable.Id_play_button);
+        Image nextButton = findComponentById(ResourceTable.Id_next_button);
+        MusicPlayer player = MyApplication.getInstance().getPlayer();
+        playButton.setClickedListener(component -> {
+            if (player == null) {
+                return;
+            }
+            if (player.isPlaying()) {
+                player.pausePlaying();
+            } else {
+                player.startPlaying();
+            }
+        });
+        nextButton.setClickedListener(component -> {
+            MyApplication.getInstance().getPlayer().nextPlaying();
+        });
+        MyApplication.getInstance().getPlayer().setProgressCallBack(new PlayerCallBack() {
+            @Override
+            public void onProcess(int process) {
+                progressBar.setProgressValue(process);
+            }
+
+            @Override
+            public void onCurrentSongMessage(String name, UserModel author, boolean isPlaying, String coverUrl) {
+                musicName.setText(name);
+                if (getContext() == null) {
+                    return;
+                }
+                Glide.with(getContext()).load(coverUrl).into(musicCover);
+                if (isPlaying) {
+                    playButton.setPixelMap(ResourceTable.Media_pause_icon);
+                } else {
+                    playButton.setPixelMap(ResourceTable.Media_start_icon);
+                }
+            }
+        });
     }
 
     private void initNavigationPage(Image navigationButton) {
@@ -83,22 +129,27 @@ public class MainAbilitySlice extends AbilitySlice {
                 .withDragDistance(150)
                 .withRootViewScale(0.7f)
                 .inject();
-        Component loginItem = findComponentById(ResourceTable.Id_nav_login_button);
-        Component playlistItem = findComponentById(ResourceTable.Id_nav_playlist_button);
+        Component loginItem = slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_login_button);
+        Component playlistItem = slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_playlist_button);
         Text text = loginItem.findComponentById(ResourceTable.Id_login_text);
-        if (PlayerUtils.isLoggedin()) {
-            text.setText("退出登陆");
-            playlistItem.setVisibility(Component.VISIBLE);
-        } else {
-            text.setText("登陆");
-            playlistItem.setVisibility(Component.INVISIBLE);
-        }
+        final Text nickNameText = slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nickname_tv);
+        MyApplication.getInstance().observeUser(user -> {
+            if (user != null) {
+                nickNameText.setText(user.getName());
+                text.setText("退出登陆");
+                playlistItem.setVisibility(Component.VISIBLE);
+            } else {
+                nickNameText.setText("nickname");
+                text.setText("登陆");
+                playlistItem.setVisibility(Component.INVISIBLE);
+            }
+        });
         slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_login_button).setClickedListener(
                 component -> {
+                    startLoginAbility();
                     if(PlayerUtils.isLoggedin()) {
-
-                    } else {
-                        startLoginAbility();
+                        MyApplication.getInstance().setToken("");
+                        MyApplication.getInstance().setUser(null);
                     }
                 }
         );

@@ -1,8 +1,10 @@
 package com.example.jeffmusic.provider;
 
 import com.bumptech.glide.Glide;
+import com.example.jeffmusic.MyApplication;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.model.MusicModel;
+import com.example.jeffmusic.player.MusicPlayer;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.agp.components.*;
 
@@ -18,6 +20,9 @@ public class MusicItemProvider extends BaseItemProvider {
     }
 
     public void setData(List<MusicModel> list) {
+        if (list == null) {
+            return;
+        }
         mList.clear();
         mList.addAll(list);
         notifyDataChanged();
@@ -54,7 +59,12 @@ public class MusicItemProvider extends BaseItemProvider {
         final Text author = cpt.findComponentById(ResourceTable.Id_music_item_author);
         Glide.with(componentContainer.getContext()).load(data.getCoverUrl()).into(image);
         name.setText(data.getName());
-        author.setText(data.getAuthor().getName());
+        author.setText("");
+        cpt.setClickedListener(component -> {
+            MusicPlayer player = MyApplication.getInstance().getPlayer();
+            player.setPlayList(mList, i);
+            player.startPlaying();
+        });
         return cpt;
     }
 }

@@ -1,10 +1,15 @@
 package com.example.jeffmusic.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class UserModel implements Serializable {
+    @SerializedName("union_id")
     private int id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("avatar_url")
     private String imageUrl;
 
     public UserModel(int id, String name, String imageUrl) {

@@ -69,12 +69,19 @@ public class LoginAbilitySlice extends AbilitySlice {
                 MyApplication.getInstance().getUserApi().login(paramsMap).enqueue(new Callback<LoginModel>() {
                     @Override
                     public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                        LoginModel data = response.body();
-                        MyApplication.getInstance().setToken(data.token);
-                        MyApplication.getInstance().setUser(data.user);
-                        new ToastDialog(getContext())
-                                .setText("登陆成功！")
-                                .show();
+                        if (response.code() == 200) {
+                            LoginModel data = response.body();
+                            MyApplication.getInstance().setToken(data.token);
+                            MyApplication.getInstance().setUser(data.user);
+                            new ToastDialog(getContext())
+                                    .setText("登陆成功！")
+                                    .show();
+                            terminateAbility();
+                        } else {
+                            new ToastDialog(getContext())
+                                    .setText("帐号或者密码错误！" + response.message())
+                                    .show();
+                        }
                     }
 
                     @Override

@@ -77,9 +77,16 @@ public class SiginAblitySlice extends AbilitySlice {
                 MyApplication.getInstance().getUserApi().register(paramsMap).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        new ToastDialog(getContext())
-                                .setText("注册成功！")
-                                .show();
+                        if (response.code() == 200) {
+                            new ToastDialog(getContext())
+                                    .setText("注册成功！")
+                                    .show();
+                            terminateAbility();
+                        } else {
+                            new ToastDialog(getContext())
+                                    .setText("注册失败！")
+                                    .show();
+                        }
                     }
 
                     @Override

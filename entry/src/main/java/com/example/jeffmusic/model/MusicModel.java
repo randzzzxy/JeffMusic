@@ -1,18 +1,26 @@
 package com.example.jeffmusic.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class MusicModel implements Serializable {
-    private int id;
-    private String name;
-    private UserModel author;
-    private String songUrl;
-    private String coverUrl;
-    private String lyricsUrl;
+    @SerializedName("id")
+    public int id;
+    @SerializedName("name")
+    public String name;
+//    @SerializedName("")
+//    private UserModel author;
+    @SerializedName("song_url")
+    public String songUrl;
+    @SerializedName("cover_url")
+    public String coverUrl;
+    @SerializedName("lyrics_url")
+    public String lyricsUrl;
 
-    public MusicModel(String name, UserModel author, String songUrl, String coverUrl, String lyricsUrl) {
+    public MusicModel(String name, String songUrl, String coverUrl, String lyricsUrl) {
         this.name = name;
-        this.author = author;
+//        this.author = author;
         this.songUrl = songUrl;
         this.coverUrl = coverUrl;
         this.lyricsUrl = lyricsUrl;
@@ -29,13 +37,13 @@ public class MusicModel implements Serializable {
         this.name = name;
     }
 
-    public UserModel getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(UserModel author) {
-        this.author = author;
-    }
+//    public UserModel getAuthor() {
+//        return author;
+//    }
+//
+//    public void setAuthor(UserModel author) {
+//        this.author = author;
+//    }
 
     public String getSongUrl() {
         return songUrl;

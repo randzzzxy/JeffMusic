@@ -22,6 +22,9 @@ public class PlayListItemProvider extends BaseItemProvider {
     }
 
     public void setData(List<PlayList> list) {
+        if (list == null) {
+            return;
+        }
         mList.clear();
         mList.addAll(list);
         notifyDataChanged();

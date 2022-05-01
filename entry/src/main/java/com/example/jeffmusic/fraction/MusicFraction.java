@@ -54,15 +54,19 @@ public class MusicFraction extends Fraction {
                 ,paramsMap).enqueue(new Callback<List<MusicModel>>() {
             @Override
             public void onResponse(Call<List<MusicModel>> call, Response<List<MusicModel>> response) {
-                pageNumber++;
-                mMusicItemProvider.setData(response.body());
+                if (response.code() == 200) {
+                    pageNumber++;
+                    mMusicItemProvider.setData(response.body());
+                }
             }
 
             @Override
             public void onFailure(Call<List<MusicModel>> call, Throwable throwable) {
-                new ToastDialog(getContext())
-                        .setText("加载歌曲失败")
-                        .show();
+                if (getFractionAbility() != null) {
+                    new ToastDialog(getFractionAbility())
+                            .setText("加载歌曲失败")
+                            .show();
+                }
             }
         });
     }
