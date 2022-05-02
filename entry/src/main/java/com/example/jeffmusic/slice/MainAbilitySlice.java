@@ -4,6 +4,7 @@ import com.bumptech.glide.Glide;
 import com.example.jeffmusic.MyApplication;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.ability.LoginAbility;
+import com.example.jeffmusic.ability.MusicDetailAbility;
 import com.example.jeffmusic.ability.UploadMusicAbility;
 import com.example.jeffmusic.fraction.PlayListDetailFraction;
 import com.example.jeffmusic.fraction.PlayListFraction;
@@ -82,12 +83,19 @@ public class MainAbilitySlice extends AbilitySlice {
     }
 
     private void initPlayerView() {
+        Component layout = findComponentById(ResourceTable.Id_player_layout);
         ProgressBar progressBar = findComponentById(ResourceTable.Id_music_progress);
         Image musicCover = findComponentById(ResourceTable.Id_music_item_imag);
         Text musicName = findComponentById(ResourceTable.Id_music_item_name);
         Image playButton = findComponentById(ResourceTable.Id_play_button);
         Image nextButton = findComponentById(ResourceTable.Id_next_button);
         MusicPlayer player = MyApplication.getInstance().getPlayer();
+        layout.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                startMusicDetailAbility();
+            }
+        });
         playButton.setClickedListener(component -> {
             if (player == null) {
                 return;
@@ -218,6 +226,17 @@ public class MainAbilitySlice extends AbilitySlice {
         Operation operation = new Intent.OperationBuilder().withDeviceId("")
                 .withBundleName(getBundleName())
                 .withAbilityName(UploadMusicAbility.class)
+                .build();
+        intent.setOperation(operation);
+        startAbility(intent);
+    }
+
+    //音乐详情页
+    private void startMusicDetailAbility() {
+        Intent intent = new Intent();
+        Operation operation = new Intent.OperationBuilder().withDeviceId("")
+                .withBundleName(getBundleName())
+                .withAbilityName(MusicDetailAbility.class)
                 .build();
         intent.setOperation(operation);
         startAbility(intent);

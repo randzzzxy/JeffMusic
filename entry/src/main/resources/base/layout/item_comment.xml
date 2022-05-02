@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+    <Text
+        ohos:id="$+id:user_name"
+        ohos:top_margin="10vp"
+        ohos:left_margin="20vp"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:text_size="14vp"
+        ohos:text="用户名"/>
+
+    <Text
+        ohos:id="$+id:comment_content"
+        ohos:top_margin="10vp"
+        ohos:left_margin="40vp"
+        ohos:right_margin="20vp"
+        ohos:height="match_content"
+        ohos:multiple_lines="true"
+        ohos:width="match_parent"
+        ohos:text_size="14vp"
+        ohos:text="评论dsiaghkjdsbvkjbasdjkbvjksadbkjvbasjdbvkjabfdklbvlkajdbfvkjlabfdkvbajkfdbvjkadfjk"/>
+
+    <Text
+        ohos:id="$+id:replay_button"
+        ohos:top_margin="10vp"
+        ohos:left_margin="40vp"
+        ohos:text_color="#8a98af"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:text_size="12vp"
+        ohos:text="回复 >"/>
+    
+    <Component
+        ohos:top_margin="10vp"
+        ohos:height="1vp"
+        ohos:width="match_parent"
+        ohos:left_margin="40vp"
+        ohos:right_margin="20vp"
+        ohos:background_element="#ececec"/>
+</DirectionalLayout>

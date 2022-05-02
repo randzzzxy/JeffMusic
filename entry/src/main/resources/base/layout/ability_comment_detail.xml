@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <DirectionalLayout
+        ohos:id="$+id:title_area"
+        ohos:align_parent_top="true"
+        ohos:orientation="horizontal"
+        ohos:height="80vp"
+        ohos:width="match_parent">
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:back_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:exitIcon"
+            ohos:layout_alignment="vertical_center"/>
+        <Text
+            ohos:id="$+id:music_name"
+            ohos:weight="9"
+            ohos:height="match_parent"
+            ohos:text="MUSIC_NAME"
+            ohos:text_color="black"
+            ohos:text_size="14fp"
+            ohos:text_alignment="center"
+            ohos:width="match_parent"/>
+
+        <Text
+            ohos:weight="1"
+            ohos:height="match_parent"
+            ohos:width="match_parent"/>
+    </DirectionalLayout>
+
+    <Text
+        ohos:below="$+id:title_area"
+        ohos:id="$+id:comment_text"
+        ohos:text="评论区"
+        ohos:text_size="12fp"
+        ohos:left_margin="30vp"
+        ohos:bottom_margin="20vp"
+        ohos:height="match_content"
+        ohos:width="match_parent"/>
+
+    <ListContainer
+        ohos:id="$+id:comment_list_container"
+        ohos:below="$+id:comment_text"
+        ohos:above="$+id:comment_input_layout"
+        ohos:background_element="black"
+        ohos:height="match_parent"
+        ohos:width="match_parent"/>
+
+    <DirectionalLayout
+        ohos:id="$+id:comment_input_layout"
+        ohos:align_parent_bottom="true"
+        ohos:height="50vp"
+        ohos:orientation="horizontal"
+        ohos:width="match_parent">
+        <TextField
+            ohos:top_margin="7vp"
+            ohos:bottom_margin="7vp"
+            ohos:left_padding="10vp"
+            ohos:left_margin="20vp"
+            ohos:text_size="10fp"
+            ohos:height="match_parent"
+            ohos:width="match_parent"
+            ohos:background_element="$graphic:background_radius"
+            ohos:hint="千头万绪，落笔汇成评论一句"
+            ohos:weight="8"/>
+
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:send_comment_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:send_icon"
+            ohos:layout_alignment="vertical_center"/>
+    </DirectionalLayout>
+
+
+</DependentLayout>

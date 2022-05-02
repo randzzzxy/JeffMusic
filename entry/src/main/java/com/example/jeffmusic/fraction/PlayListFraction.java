@@ -7,11 +7,11 @@ import com.example.jeffmusic.model.PlayList;
 import com.example.jeffmusic.provider.PlayListItemProvider;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.content.Intent;
-import ohos.agp.components.Component;
-import ohos.agp.components.ComponentContainer;
-import ohos.agp.components.LayoutScatter;
-import ohos.agp.components.ListContainer;
+import ohos.agp.components.*;
+import ohos.agp.window.dialog.CommonDialog;
+import ohos.agp.window.dialog.IDialog;
 import ohos.agp.window.dialog.ToastDialog;
+import okhttp3.ResponseBody;
 import poetry.jianjia.Call;
 import poetry.jianjia.Callback;
 import poetry.jianjia.Response;
@@ -35,6 +35,45 @@ public class PlayListFraction extends Fraction {
     protected void onStart(Intent intent) {
         super.onStart(intent);
         initListContainer();
+        initView();
+    }
+
+    private void initView() {
+        getFractionAbility().findComponentById(ResourceTable.Id_playlist_add_button).setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                CommonDialog dialog = new CommonDialog(getContext());
+                TextField input = new TextField(getContext());
+                dialog.setTitleText("创建歌单");
+                dialog.setContentCustomComponent(input);
+                dialog.setButton(IDialog.BUTTON3, "创建", (iDialog, i) -> {
+                    MyApplication.getInstance().getMusicApi().createPlayList(MyApplication.getInstance().getToken(), input.getText()).enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (response.code() == 200) {
+                                new ToastDialog(getContext())
+                                        .setText("创建成功！")
+                                        .show();
+                                fetchData();
+                            } else {
+                                new ToastDialog(getContext())
+                                        .setText("创建失败！")
+                                        .show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+                            new ToastDialog(getContext())
+                                    .setText("创建失败！")
+                                    .show();
+                        }
+                    });
+                    iDialog.destroy();
+                });
+                dialog.show();
+            }
+        });
     }
 
     @Override

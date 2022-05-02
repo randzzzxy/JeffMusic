@@ -90,6 +90,24 @@
         "label": "$string:entry_UploadMusicAbility",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.jeffmusic.ability.MusicDetailAbility",
+        "icon": "$media:icon",
+        "description": "$string:musicdetailability_description",
+        "label": "$string:entry_MusicDetailAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.jeffmusic.ability.CommentDetailAbility",
+        "icon": "$media:icon",
+        "description": "$string:commentdetailability_description",
+        "label": "$string:entry_CommentDetailAbility",
+        "type": "page",
+        "launchType": "standard"
       }
     ]
   }

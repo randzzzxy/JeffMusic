@@ -29,4 +29,7 @@ public interface MusicApi {
     @POST("music/upload")
     Call<ResponseBody> uploadMusic(@Header("Authorization") String token, @Field("name") String name, @Part() List<MultipartBody.Part> parts);
 
+    @POST("music/playlist")
+    Call<ResponseBody> createPlayList(@Header("Authorization") String token, @Field("play_list_name") String name);
+
 }

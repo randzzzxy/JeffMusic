@@ -64,6 +64,7 @@
         />
 
     <DependentLayout
+        ohos:id="$+id:player_layout"
         ohos:height="match_parent"
         ohos:width="match_parent"
         ohos:weight="1.5"

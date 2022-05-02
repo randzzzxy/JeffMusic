@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <DirectionalLayout
+        ohos:id="$+id:title_area"
+        ohos:align_parent_top="true"
+        ohos:orientation="horizontal"
+        ohos:height="80vp"
+        ohos:width="match_parent">
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:navigation_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:exitIcon"
+            ohos:layout_alignment="vertical_center"/>
+        <Text
+            ohos:id="$+id:music_name"
+            ohos:weight="8"
+            ohos:height="match_parent"
+            ohos:text="MUSIC_NAME"
+            ohos:text_color="black"
+            ohos:text_size="14fp"
+            ohos:text_alignment="center"
+            ohos:width="match_parent"/>
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:search_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:right_margin="20vp"
+            ohos:image_src="$media:opration_song_icon"
+            ohos:layout_alignment="vertical_center"/>
+    </DirectionalLayout>
+
+    <Image
+        ohos:below="$+id:title_area"
+        ohos:above="$+id:lyrics_text"
+        ohos:height="match_parent"
+        ohos:image_src="black"
+        ohos:width="match_parent"/>
+
+    <Text
+        ohos:top_margin="20vp"
+        ohos:id="$+id:lyrics_text"
+        ohos:above="$+id:music_opration_area"
+        ohos:height="match_content"
+        ohos:text_alignment="center"
+        ohos:text_size="14fp"
+        ohos:text="歌词"
+        ohos:width="match_parent"/>
+
+    <DirectionalLayout
+        ohos:id="$+id:music_opration_area"
+        ohos:orientation="horizontal"
+        ohos:above="$+id:user_opration_area"
+        ohos:height="80vp"
+        ohos:width="match_parent">
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:loop_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:loop_icon"
+            ohos:layout_alignment="vertical_center"/>
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:previous_song_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:previous_song_icon"
+            ohos:layout_alignment="vertical_center"/>
+
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:playing_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:pause_icon"
+            ohos:layout_alignment="vertical_center"/>
+
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:next_song_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:next_song_icon"
+            ohos:layout_alignment="vertical_center"/>
+
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:play_list_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:local_playlist_icon"
+            ohos:layout_alignment="vertical_center"/>
+    </DirectionalLayout>
+
+    <DirectionalLayout
+        ohos:id="$+id:user_opration_area"
+        ohos:align_parent_bottom="true"
+        ohos:orientation="horizontal"
+        ohos:height="80vp"
+        ohos:width="match_parent">
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:down_load_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:download_icon"
+            ohos:layout_alignment="vertical_center"/>
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:collect_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:collect_to_list"
+            ohos:layout_alignment="vertical_center"/>
+
+        <Image
+            ohos:weight="1"
+            ohos:id="$+id:comment_button"
+            ohos:height="80"
+            ohos:width="80"
+            ohos:left_margin="20vp"
+            ohos:image_src="$media:comment_button"
+            ohos:layout_alignment="vertical_center"/>
+    </DirectionalLayout>
+
+</DependentLayout>

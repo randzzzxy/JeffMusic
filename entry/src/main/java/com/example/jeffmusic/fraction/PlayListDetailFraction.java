@@ -50,8 +50,14 @@ public class PlayListDetailFraction extends Fraction {
         MyApplication.getInstance().getMusicApi().getPlayListSongs(MyApplication.getInstance().getToken()
                 ,mPlaylistId).enqueue(new Callback<List<MusicModel>>() {
             @Override
-            public void onResponse(Call<List<MusicModel>> call, Response<List<MusicModel>> response) {;
-                mMusicItemProvider.setData(response.body());
+            public void onResponse(Call<List<MusicModel>> call, Response<List<MusicModel>> response) {
+                if (response.code() == 200) {
+                    mMusicItemProvider.setData(response.body());
+                } else {
+                    new ToastDialog(getContext())
+                            .setText("加载歌曲失败")
+                            .show();
+                }
             }
 
             @Override

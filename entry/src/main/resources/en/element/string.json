@@ -47,6 +47,30 @@
     {
       "name": "uploadmusicability_HelloWorld",
       "value": "Hello World"
+    },
+    {
+      "name": "entry_MusicDetailAbility",
+      "value": "entry_MusicDetailAbility"
+    },
+    {
+      "name": "musicdetailability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "musicdetailability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_CommentDetailAbility",
+      "value": "entry_CommentDetailAbility"
+    },
+    {
+      "name": "commentdetailability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "commentdetailability_HelloWorld",
+      "value": "Hello World"
     }
   ]
 }
