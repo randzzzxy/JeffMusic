@@ -58,7 +58,7 @@ public class PlayListFraction extends Fraction {
             @Override
             public void onFailure(Call<List<PlayList>> call, Throwable throwable) {
                 new ToastDialog(getContext())
-                        .setText("加载歌曲失败")
+                        .setText("加载歌单失败")
                         .show();
             }
         });

@@ -31,6 +31,7 @@ dependencies {
 
     implementation('com.gitee.chinasoft_ohos:SlidingRootNav:0.0.2-SNAPSHOT')
     implementation 'io.openharmony.tpc.thirdlib:glide:1.1.2'
+    implementation('com.gitee.chinasoft_ohos:multipicker:1.6.1')
 }
 decc {
     supportType = ['html','xml']

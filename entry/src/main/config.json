@@ -21,7 +21,14 @@
     "deviceType": [
       "phone"
     ],
-    "reqPermissions": [{"name":"ohos.permission.INTERNET"}],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      },
+      {
+        "name": "ohos.permission.READ_USER_STORAGE"
+      }
+    ],
     "distro": {
       "deliveryWithInstall": true,
       "moduleName": "entry",
@@ -72,6 +79,15 @@
         "icon": "$media:icon",
         "description": "$string:siginablity_description",
         "label": "$string:entry_SiginAblity",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.jeffmusic.ability.UploadMusicAbility",
+        "icon": "$media:icon",
+        "description": "$string:uploadmusicability_description",
+        "label": "$string:entry_UploadMusicAbility",
         "type": "page",
         "launchType": "standard"
       }

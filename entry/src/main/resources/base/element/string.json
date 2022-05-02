@@ -35,6 +35,18 @@
     {
       "name": "entry_SiginAblity",
       "value": "entry_SiginAblity"
+    },
+    {
+      "name": "uploadmusicability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "uploadmusicability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_UploadMusicAbility",
+      "value": "entry_UploadMusicAbility"
     }
   ]
 }

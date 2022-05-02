@@ -4,6 +4,7 @@ import com.bumptech.glide.Glide;
 import com.example.jeffmusic.MyApplication;
 import com.example.jeffmusic.ResourceTable;
 import com.example.jeffmusic.ability.LoginAbility;
+import com.example.jeffmusic.ability.UploadMusicAbility;
 import com.example.jeffmusic.fraction.PlayListDetailFraction;
 import com.example.jeffmusic.fraction.PlayListFraction;
 import com.example.jeffmusic.fraction.MusicFraction;
@@ -131,6 +132,7 @@ public class MainAbilitySlice extends AbilitySlice {
                 .inject();
         Component loginItem = slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_login_button);
         Component playlistItem = slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_playlist_button);
+        Component uploadItem = slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_upload_music_button);
         Text text = loginItem.findComponentById(ResourceTable.Id_login_text);
         final Text nickNameText = slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nickname_tv);
         MyApplication.getInstance().observeUser(user -> {
@@ -138,11 +140,16 @@ public class MainAbilitySlice extends AbilitySlice {
                 nickNameText.setText(user.getName());
                 text.setText("退出登陆");
                 playlistItem.setVisibility(Component.VISIBLE);
+                uploadItem.setVisibility(Component.VISIBLE);
             } else {
                 nickNameText.setText("nickname");
                 text.setText("登陆");
                 playlistItem.setVisibility(Component.INVISIBLE);
+                uploadItem.setVisibility(Component.INVISIBLE);
             }
+        });
+        uploadItem.setClickedListener(component -> {
+            startUploadMusicAbility();
         });
         slidingRootNav.getLayout().findComponentById(ResourceTable.Id_nav_login_button).setClickedListener(
                 component -> {
@@ -200,6 +207,17 @@ public class MainAbilitySlice extends AbilitySlice {
         Operation operation = new Intent.OperationBuilder().withDeviceId("")
                 .withBundleName(getBundleName())
                 .withAbilityName(LoginAbility.class)
+                .build();
+        intent.setOperation(operation);
+        startAbility(intent);
+    }
+
+    //上传音乐页面
+    private void startUploadMusicAbility() {
+        Intent intent = new Intent();
+        Operation operation = new Intent.OperationBuilder().withDeviceId("")
+                .withBundleName(getBundleName())
+                .withAbilityName(UploadMusicAbility.class)
                 .build();
         intent.setOperation(operation);
         startAbility(intent);

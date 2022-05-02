@@ -86,6 +86,26 @@
                 ohos:text_size="12fp"
                 ohos:text_alignment="left|vertical_center"/>
         </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:id="$+id:nav_upload_music_button"
+            ohos:height="40vp"
+            ohos:orientation="horizontal"
+            ohos:width="match_parent">
+            <Image
+                ohos:layout_alignment="left|vertical_center"
+                ohos:height="34vp"
+                ohos:width="34vp"
+                ohos:image_src="$media:upload_icon"/>
+            <Text
+                ohos:height="match_parent"
+                ohos:width="match_parent"
+                ohos:text_color="black"
+                ohos:left_margin="20vp"
+                ohos:text="音乐上传"
+                ohos:text_size="12fp"
+                ohos:text_alignment="left|vertical_center"/>
+        </DirectionalLayout>
     </DirectionalLayout>
 
 </DirectionalLayout>

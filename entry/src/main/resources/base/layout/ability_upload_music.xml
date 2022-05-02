@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:text_size="20fp"
+        ohos:top_margin="5vp"
+        ohos:text_alignment="center"
+        ohos:text="UPLOAD MUSIC"/>
+
+    <TextField
+        ohos:id="$+id:upload_music_name_text_field"
+        ohos:top_margin="20vp"
+        ohos:left_margin="30vp"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:hint="音乐名称"
+        ohos:text_size="14fp"/>
+
+    <Text
+        ohos:id="$+id:upload_music_file_text"
+        ohos:top_margin="20vp"
+        ohos:height="60vp"
+        ohos:width="match_parent"
+        ohos:left_margin="20vp"
+        ohos:right_margin="20vp"
+        ohos:text_alignment="center"
+        ohos:text="上传音乐文件"
+        ohos:text_size="14fp"
+        ohos:text_color="#aeaeae"
+        ohos:background_element="$graphic:background_text_upload"/>
+
+    <Text
+        ohos:id="$+id:upload_cover_file_text"
+        ohos:top_margin="20vp"
+        ohos:height="60vp"
+        ohos:width="match_parent"
+        ohos:left_margin="20vp"
+        ohos:right_margin="20vp"
+        ohos:text_alignment="center"
+        ohos:text="上传封面图片"
+        ohos:text_size="14fp"
+        ohos:text_color="#aeaeae"
+        ohos:background_element="$graphic:background_text_upload"/>
+
+    <Text
+        ohos:id="$+id:upload_lysics_file_text"
+        ohos:top_margin="20vp"
+        ohos:height="60vp"
+        ohos:width="match_parent"
+        ohos:left_margin="20vp"
+        ohos:right_margin="20vp"
+        ohos:text_alignment="center"
+        ohos:text="上传歌词文件"
+        ohos:text_size="14fp"
+        ohos:text_color="#aeaeae"
+        ohos:background_element="$graphic:background_text_upload"/>
+
+    <Text
+        ohos:margin="40vp"
+        ohos:id="$+id:upload_button"
+        ohos:height="40vp"
+        ohos:width="match_parent"
+        ohos:text_alignment="center"
+        ohos:text="上传"
+        ohos:background_element="$graphic:background_login_button"
+        ohos:text_color="white"
+        ohos:text_size="14fp"/>
+
+
+</DirectionalLayout>
