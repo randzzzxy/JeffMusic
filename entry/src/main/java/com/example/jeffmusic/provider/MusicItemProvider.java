@@ -7,15 +7,16 @@ import com.example.jeffmusic.model.MusicModel;
 import com.example.jeffmusic.player.MusicPlayer;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.agp.components.*;
+import ohos.app.Context;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MusicItemProvider extends BaseItemProvider {
     private List<MusicModel> mList = new ArrayList<>();
-    private Fraction mFraction;
+    private Context mFraction;
 
-    public MusicItemProvider(Fraction fraction) {
+    public MusicItemProvider(Context fraction) {
         this.mFraction = fraction;
     }
 

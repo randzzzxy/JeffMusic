@@ -30,5 +30,7 @@ public interface IMusicPlayer {
     void setProgress(int progress);
 
     //设置进度监听
-    void setProgressCallBack(PlayerCallBack progressCallBack);
+    void addPlayerCallBack(PlayerCallBack progressCallBack);
+
+    void previousPlaying();
 }

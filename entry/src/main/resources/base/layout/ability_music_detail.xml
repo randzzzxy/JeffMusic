@@ -13,7 +13,7 @@
         ohos:width="match_parent">
         <Image
             ohos:weight="1"
-            ohos:id="$+id:navigation_button"
+            ohos:id="$+id:back_button"
             ohos:height="80"
             ohos:width="80"
             ohos:left_margin="20vp"
@@ -30,7 +30,7 @@
             ohos:width="match_parent"/>
         <Image
             ohos:weight="1"
-            ohos:id="$+id:search_button"
+            ohos:id="$+id:operation_button"
             ohos:height="80"
             ohos:width="80"
             ohos:right_margin="20vp"
@@ -39,6 +39,7 @@
     </DirectionalLayout>
 
     <Image
+        ohos:id="$+id:cover_image"
         ohos:below="$+id:title_area"
         ohos:above="$+id:lyrics_text"
         ohos:height="match_parent"

@@ -1,8 +1,8 @@
 package com.example.jeffmusic;
 
+import com.example.jeffmusic.api.CommentApi;
 import com.example.jeffmusic.api.MusicApi;
 import com.example.jeffmusic.api.UserApi;
-import com.example.jeffmusic.model.MusicModel;
 import com.example.jeffmusic.model.UserModel;
 import com.example.jeffmusic.player.MusicPlayer;
 import com.example.jeffmusic.utils.PlayerUtils;
@@ -28,6 +28,7 @@ public class MyApplication extends AbilityPackage {
     private UserModel mUser;
     private Preferences mPreferences;
     private MusicApi mMusicApi;
+    private CommentApi mCommentApi;
     private List<UserCallback> mUserObservers = new ArrayList<>();
     private MusicPlayer mPlayer = new MusicPlayer(this);
 
@@ -82,6 +83,7 @@ public class MyApplication extends AbilityPackage {
                 .build();
         mUserApi = mJianJia.create(UserApi.class);
         mMusicApi = mJianJia.create(MusicApi.class);
+        mCommentApi = mJianJia.create(CommentApi.class);
         Context context = getContext(); // 数据文件存储路径：/data/data/{PackageName}/{AbilityName}/preferences。
         // Context context = getApplicationContext(); // 数据文件存储路径：/data/data/{PackageName}/preferences。
         DatabaseHelper databaseHelper = new DatabaseHelper(context); // context入参类型为ohos.app.Context。
@@ -102,6 +104,10 @@ public class MyApplication extends AbilityPackage {
                 }
             });
         }
+    }
+
+    public CommentApi getCommentApi() {
+        return mCommentApi;
     }
 
     public void observeUser(UserCallback callback){

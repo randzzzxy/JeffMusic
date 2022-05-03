@@ -1,5 +1,6 @@
 package com.example.jeffmusic.api;
 
+import com.example.jeffmusic.model.Collect;
 import com.example.jeffmusic.model.MusicModel;
 import com.example.jeffmusic.model.PlayList;
 import com.example.jeffmusic.model.UserModel;
@@ -25,6 +26,9 @@ public interface MusicApi {
 
     @GET("music/collect")
     Call<List<MusicModel>> getPlayListSongs(@Header("Authorization") String token, @Query("play_list_id") int id);
+
+    @POST("music/collect")
+    Call<List<MusicModel>> collectSong(@Header("Authorization") String token, @Body Collect collect);
 
     @POST("music/upload")
     Call<ResponseBody> uploadMusic(@Header("Authorization") String token, @Field("name") String name, @Part() List<MultipartBody.Part> parts);

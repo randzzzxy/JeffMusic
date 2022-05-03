@@ -60,6 +60,7 @@
         ohos:orientation="horizontal"
         ohos:width="match_parent">
         <TextField
+            ohos:id="$+id:comment_input_text_field"
             ohos:top_margin="7vp"
             ohos:bottom_margin="7vp"
             ohos:left_padding="10vp"

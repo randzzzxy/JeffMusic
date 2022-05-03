@@ -23,7 +23,6 @@ import ohos.aafwk.ability.fraction.FractionManager;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.*;
-import ohos.agp.components.element.VectorElement;
 import ohos.agp.window.service.WindowManager;
 
 public class MainAbilitySlice extends AbilitySlice {
@@ -109,7 +108,7 @@ public class MainAbilitySlice extends AbilitySlice {
         nextButton.setClickedListener(component -> {
             MyApplication.getInstance().getPlayer().nextPlaying();
         });
-        MyApplication.getInstance().getPlayer().setProgressCallBack(new PlayerCallBack() {
+        MyApplication.getInstance().getPlayer().addPlayerCallBack(new PlayerCallBack() {
             @Override
             public void onProcess(int process) {
                 progressBar.setProgressValue(process);
